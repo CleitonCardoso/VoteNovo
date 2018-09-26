@@ -7,7 +7,12 @@ export default class SplashScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <ImageLoader source={require('../assets/novo_logo.png')} />
+        <ImageLoader
+          source={require('../assets/novo_logo.png')}
+          callback={() => {
+            this.props.navigation.navigate('termos')
+          }}
+        />
       </View>
     )
   }

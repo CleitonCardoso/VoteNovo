@@ -15,14 +15,7 @@ export default class RandomList extends React.Component {
 
   constructor(props) {
     super(props)
-    this.state = {
-      deputadoFederal: candidatos[4],
-      deputadoEstadual: candidatos[4],
-      senador1: candidatos[4],
-      senador2: candidatos[4],
-      governador: candidatos[4],
-      presidente: candidatos[4]
-    }
+    this.state = {}
   }
 
   componentWillMount() {
@@ -58,7 +51,6 @@ export default class RandomList extends React.Component {
     let thisList = [...list]
     if (ignoredItem != undefined) {
       thisList.splice(thisList.indexOf(ignoredItem), 1)
-      console.log(thisList)
     }
     var listLength = thisList.length
     var randomIndex = Math.floor(Math.random() * listLength)
@@ -85,85 +77,187 @@ export default class RandomList extends React.Component {
 
   render() {
     return (
-      <View
-        style={{
-          flex: 1,
-          flexDirection: 'column',
-          justifyContent: 'flex-start',
-          alignItems: 'stretch',
-          backgroundColor: '#f36f21'
-        }}
-      >
+      <View style={styles.container}>
         {/* HEADER */}
         <View style={{ height: 50 }} />
 
         {/* DEPUTADO FEDERAL  */}
         <View style={styles.oddItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.deputadoFederal['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.deputadoFederal
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.deputadoFederal['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Deputado Federal
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.deputadoFederal
+                  ? this.state.deputadoFederal['nome']
+                  : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.deputadoFederal
+                ? this.state.deputadoFederal['legenda']
+                : '????'}
+            </Text>
+          </View>
         </View>
 
         {/* DEPUTADO ESTADUAL */}
         <View style={styles.evenItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.deputadoEstadual['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.deputadoEstadual
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.deputadoEstadual['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Deputado Estadual
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.deputadoEstadual
+                  ? this.state.deputadoEstadual['nome']
+                  : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.deputadoEstadual
+                ? this.state.deputadoEstadual['legenda']
+                : '?????'}
+            </Text>
+          </View>
         </View>
 
         {/* SENADOR */}
         <View style={styles.oddItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.senador1['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.senador1
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.senador1['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Primeiro Senador
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.senador1 ? this.state.senador1['nome'] : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.senador1 ? this.state.senador1['legenda'] : '???'}
+            </Text>
+          </View>
         </View>
         {/* SENADOR */}
         <View style={styles.evenItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.senador2['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.senador2
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.senador2['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Segundo Senador
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.senador2 ? this.state.senador2['nome'] : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.senador2 ? this.state.senador2['legenda'] : '???'}
+            </Text>
+          </View>
         </View>
         {/* GOVERNADOR */}
         <View style={styles.oddItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.governador['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.governador
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.governador['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Governador
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.governador ? this.state.governador['nome'] : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.governador ? this.state.governador['legenda'] : '??'}
+            </Text>
+          </View>
         </View>
         {/* PRESIDENTE */}
         <View style={styles.evenItem}>
-          <Image
-            style={styles.thumbStyle}
-            source={{
-              uri:
-                'https://apicandidatos.novo.org.br/media/' +
-                this.state.presidente['imagens']['thumb']
-            }}
-          />
+          <View style={styles.itemWrapper}>
+            <Image
+              style={styles.thumbStyle}
+              source={
+                this.state.presidente
+                  ? {
+                      uri:
+                        'https://apicandidatos.novo.org.br/media/' +
+                        this.state.presidente['imagens']['thumb']
+                    }
+                  : require('../assets/unknown_person.png')
+              }
+            />
+            <View style={styles.detailsWrapper}>
+              <Text style={styles.roleLabel} adjustsFontSizeToFit={true}>
+                Presidente
+              </Text>
+              <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
+                {this.state.presidente ? this.state.presidente['nome'] : '?'}
+              </Text>
+            </View>
+            <Text style={styles.candidateNumber}>
+              {this.state.presidente ? this.state.presidente['legenda'] : '??'}
+            </Text>
+          </View>
         </View>
 
         <View style={styles.randomButton}>
@@ -180,6 +274,13 @@ export default class RandomList extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    flexDirection: 'column',
+    justifyContent: 'flex-start',
+    alignItems: 'stretch',
+    backgroundColor: '#f36f21'
+  },
   thumbStyle: {
     borderWidth: 2,
     borderRadius: 3,
@@ -207,14 +308,40 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
     alignContent: 'center'
+  },
+  itemWrapper: {
+    flexDirection: 'row'
+  },
+  detailsWrapper: {
+    flexDirection: 'column',
+    alignSelf: 'center',
+    width: 75,
+    marginLeft: 20,
+    justifyContent: 'space-between'
+  },
+  roleLabel: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 9
+  },
+  candidateName: {
+    color: 'white',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 15,
+    textShadowColor: '#f36f21',
+    textShadowOffset: { width: 1, height: 1 },
+    textShadowRadius: 2
+  },
+  candidateNumber: {
+    color: 'white',
+    textAlign: 'justify',
+    fontWeight: 'bold',
+    fontSize: 60,
+    marginLeft: 20,
+    textShadowColor: '#f36f21',
+    textShadowOffset: { width: 1, height: 4 },
+    textShadowRadius: 2
   }
 })
-
-{
-  /* DEPUTADO ESTADUAL 5
-DEPUTADO FEDERAL 4
-senador 3
-senador 3
-governador 2
-presidente 2 */
-}

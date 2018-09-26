@@ -19,7 +19,11 @@ export default class ImageLoader extends React.Component {
         duration: 500,
         useNativeDriver: true
       })
-    ]).start()
+    ]).start(status => {
+      if (status.finished) {
+        this.props.callback()
+      }
+    })
   }
 
   render() {

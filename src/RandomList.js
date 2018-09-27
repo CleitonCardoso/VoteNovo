@@ -1,10 +1,16 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
-import { AppRegistry, Text, TextInput, Image } from 'react-native'
-import { Button } from 'react-native'
-import candidatos from '../candidatos.json'
+import {
+  View,
+  StyleSheet,
+  Text,
+  Image,
+  Dimensions,
+  PixelRatio,
+  Button
+} from 'react-native'
 
-import ImageLoader from './ImageLoader'
+import candidatos from '../candidatos.json'
+import { widthPercentageToDP, heightPercentageToDP } from './PixelToDp'
 
 export default class RandomList extends React.Component {
   deputadosFederais
@@ -102,7 +108,7 @@ export default class RandomList extends React.Component {
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
                 {this.state.deputadoFederal
-                  ? this.state.deputadoFederal['nome']
+                  ? this.state.deputadoFederal['nome'].substring(0,20)
                   : '?'}
               </Text>
             </View>
@@ -135,7 +141,7 @@ export default class RandomList extends React.Component {
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
                 {this.state.deputadoEstadual
-                  ? this.state.deputadoEstadual['nome']
+                  ? this.state.deputadoEstadual['nome'].substring(0,20)
                   : '?'}
               </Text>
             </View>
@@ -167,7 +173,7 @@ export default class RandomList extends React.Component {
                 Primeiro Senador
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
-                {this.state.senador1 ? this.state.senador1['nome'] : '?'}
+                {this.state.senador1 ? this.state.senador1['nome'].substring(0,20) : '?'}
               </Text>
             </View>
             <Text style={styles.candidateNumber}>
@@ -195,7 +201,7 @@ export default class RandomList extends React.Component {
                 Segundo Senador
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
-                {this.state.senador2 ? this.state.senador2['nome'] : '?'}
+                {this.state.senador2 ? this.state.senador2['nome'].substring(0,20) : '?'}
               </Text>
             </View>
             <Text style={styles.candidateNumber}>
@@ -223,7 +229,7 @@ export default class RandomList extends React.Component {
                 Governador
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
-                {this.state.governador ? this.state.governador['nome'] : '?'}
+                {this.state.governador ? this.state.governador['nome'].substring(0,20) : '?'}
               </Text>
             </View>
             <Text style={styles.candidateNumber}>
@@ -251,7 +257,7 @@ export default class RandomList extends React.Component {
                 Presidente
               </Text>
               <Text style={styles.candidateName} adjustsFontSizeToFit={true}>
-                {this.state.presidente ? this.state.presidente['nome'] : '?'}
+                {this.state.presidente ? this.state.presidente['nome'].substring(0,20) : '?'}
               </Text>
             </View>
             <Text style={styles.candidateNumber}>
@@ -287,25 +293,25 @@ const styles = StyleSheet.create({
     borderColor: '#ddd',
     borderBottomWidth: 0,
     marginLeft: 5,
-    height: 90,
-    width: 90
+    height: heightPercentageToDP('12%'),
+    width: widthPercentageToDP('21%')
   },
   evenItem: {
-    height: 100,
+    height: heightPercentageToDP('13%'),
     backgroundColor: '#f9a572',
     alignContent: 'center',
     justifyContent: 'center'
   },
   oddItem: {
-    height: 100,
+    height: heightPercentageToDP('13%'),
     backgroundColor: '#165464',
     alignContent: 'center',
     justifyContent: 'center'
   },
   randomButton: {
-    marginLeft: 20,
-    marginRight: 20,
-    height: 100,
+    height: heightPercentageToDP('13%'),
+    marginLeft: widthPercentageToDP('5%'),
+    marginRight: widthPercentageToDP('5%'),
     justifyContent: 'center',
     alignContent: 'center'
   },
@@ -315,21 +321,21 @@ const styles = StyleSheet.create({
   detailsWrapper: {
     flexDirection: 'column',
     alignSelf: 'center',
-    width: 75,
-    marginLeft: 20,
+    width: widthPercentageToDP('22%'),
+    marginLeft: widthPercentageToDP('3%'),
     justifyContent: 'space-between'
   },
   roleLabel: {
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 9
+    fontSize: widthPercentageToDP('1.5%')
   },
   candidateName: {
     color: 'white',
     textAlign: 'center',
     fontWeight: 'bold',
-    fontSize: 15,
+    fontSize: widthPercentageToDP('4.5%'),
     textShadowColor: '#f36f21',
     textShadowOffset: { width: 1, height: 1 },
     textShadowRadius: 2
@@ -338,8 +344,8 @@ const styles = StyleSheet.create({
     color: 'white',
     textAlign: 'justify',
     fontWeight: 'bold',
-    fontSize: 60,
-    marginLeft: 20,
+    fontSize: widthPercentageToDP('16%'),
+    marginLeft: widthPercentageToDP('3%'),
     textShadowColor: '#f36f21',
     textShadowOffset: { width: 1, height: 4 },
     textShadowRadius: 2

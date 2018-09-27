@@ -63,3 +63,5 @@ typings/
 # expo
 .expo/
 *.orig
+
+package-lock.json

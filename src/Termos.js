@@ -1,8 +1,6 @@
 import React from 'react'
 
-import { StyleSheet, Text, View, Image, Animated } from 'react-native'
-import { AsyncStorage } from 'react-native'
-import { Button } from 'react-native'
+import { StyleSheet, Text, View, AsyncStorage, Button } from 'react-native'
 
 export default class Termos extends React.Component {
   goToRandomList = () => {

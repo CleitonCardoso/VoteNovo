@@ -1,5 +1,5 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Animated } from 'react-native'
+import { Animated } from 'react-native'
 
 export default class ImageLoader extends React.Component {
   state = {

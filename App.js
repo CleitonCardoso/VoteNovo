@@ -1,5 +1,4 @@
 import React from 'react'
-import { StyleSheet, Text, View, Image, Animated } from 'react-native'
 import { createStackNavigator } from 'react-navigation'
 
 import SplashScreen from './src/SplashScreen'
@@ -14,7 +13,11 @@ const RootStack = createStackNavigator(
   },
   {
     initialRouteName: 'home',
-    headerMode: 'none'
+    headerMode: 'none',
+    navigationOptions: {
+      gesturesEnabled: false,
+      swipeEnabled: false
+    }
   }
 )
 

@@ -1,5 +1,15 @@
 {
   "expo": {
-    "sdkVersion": "27.0.0"
+   "name": "VoteNovo",
+   "icon": "./assets/icon.png",
+   "version": "1.0.0",
+   "slug": "votenovo",
+   "sdkVersion": "27.0.0",
+   "ios": {
+     "bundleIdentifier": "com.votenovo.app"
+   },
+   "android": {
+     "package": "com.votenovo.app"
+   }
   }
 }

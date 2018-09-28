@@ -10,7 +10,8 @@
     },
     "android": {
       "package": "com.votenovo.app",
-      "versionCode": 2
+      "versionCode": 2,
+      "orientation": "portrait"
    }
   }
 }

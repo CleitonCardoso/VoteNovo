@@ -5,13 +5,13 @@
    "version": "1.0.1",
    "slug": "votenovo",
    "sdkVersion": "27.0.0",
+   "orientation": "portrait",
    "ios": {
      "bundleIdentifier": "com.votenovo.app"
     },
     "android": {
       "package": "com.votenovo.app",
-      "versionCode": 2,
-      "orientation": "portrait"
+      "versionCode": 2     
    }
   }
 }
